@@ -1,0 +1,21 @@
+service: rest-api
+franeworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  hello:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: GET
+  bye:
+    handler: bye.handler
+    events:
+      - httpApi:
+          path: /bye
+          method: GET
